@@ -129,8 +129,17 @@ if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
 endif
 
-" vim-airline customizations
+" to support vim-airline customizations
+set encoding=utf-8
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
 let g:airline_powerline_fonts = 1
+let g:airline_symbols.colnr = ' C:'
+
+" for YouCompleteMe
+let g:ycm_clangd_binary_path='/usr/lib/llvm/17/bin/clangd'
+let g:ycm_autoclose_preview_window_after_completion = 1
 
 "colorscheme sublimemonokai
 colorscheme codedark
